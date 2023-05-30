@@ -28,25 +28,35 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/13Pmn7b.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/cQBFXM3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, we create a Domain Controller (DC) with Windows Server 2022 and a Client Virtual Machine (VM) with Windows 10 in Azure. We test connectivity between the two computers through the command-line using the ping command from the Client VM. Once connectivity is established, we change DC's virtual NIC to static in Azure.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Next, we install .
+First, we create a Domain Controller (DC) with Windows Server 2022 and a Client Virtual Machine (VM) with Windows 10 in Azure. We test connectivity between the two computers in the command-line using the ping command from the Client VM. Once connectivity is established, we change DC's virtual Network Interface Card (NIC) to static in Azure.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/vXBMUuQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/wpOAhQV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, we install Active Directory through the Server Manager on the DC. Once downloaded, we promote the server to a Domain Controller. In the Deployment Configuration, we'll add a new forest (which we named "mydomain.com"). Within the domain we create admin and non-admin user accounts.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/t3nr0xk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+From the Client Machine, we join the computer to the newly created domain. We can verify it was successful when it's listed under the Computer in Active Directory Users and Computers.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/U0PN9GN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Lastly, within the Client Machine we set up Remote Desktop for non-admin users to be able to login to any machine joined to the domain.
 </p>
 <br />
